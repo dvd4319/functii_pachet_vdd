@@ -1,0 +1,23 @@
+Împărțirea unui proiect în mai multe fișiere sursă și header este o practică standard în programarea C (și nu numai) și are mai multe avantaje importante:
+
+1. Modularitatea codului:
+
+Împărțind funcționalitățile în fișiere separate, cum ar fi fișiere .c (pentru implementări) și .h (pentru declarații), îți faci codul mai modular. Fiecare fișier va conține o secțiune specifică de funcționalitate, iar acest lucru face programul mai ușor de înțeles și întreținut.
+
+Fișierul .h conține doar declarațiile funcțiilor (semnătura lor), variabile globale, structuri, etc., fără a detalia implementarea.
+Fișierul .c conține implementarea efectivă a funcțiilor, adică cum sunt realizate aceste operațiuni.
+
+
+2. Reutilizarea codului:
+Dacă ai funcții sau structuri de date care sunt utilizate în mai multe locuri, le poți declara într-un fișier .h și le poți include în mai multe fișiere .c. Astfel, poți reutiliza aceleași funcționalități fără a le rescrie de fiecare dată, economisind timp și efort.
+
+De exemplu, dacă ai mai multe fișiere sursă care au nevoie de funcțiile suma() și produs(), le poți declara o singură dată într-un fișier .h și le poți include în orice fișier sursă care le folosește.
+
+3. Împărțirea responsabilităților:
+Fișierele .h oferă o "interfață" clară a modulului, indicând ce funcționalități sunt disponibile pentru utilizatorii acelui modul.
+Fișierele .c implementează aceste funcționalități. Separarea lor ajută la înțelegerea clară a responsabilităților fiecărui fișier.
+4. Creșterea eficienței procesului de compilare:
+În proiecte mari, compilarea poate fi mai rapidă dacă se separă declarațiile din fișiere .h și implementările din fișiere .c. Dacă modifici doar implementarea unei funcții (dintr-un fișier .c), nu este necesar să recompili tot proiectul, ci doar fișierele care depind de acel .c. În schimb, dacă modifici un fișier .h, este posibil să trebuiască să recompili tot ce depinde de acele declarații.
+
+5. Colaborare mai ușoară:
+Într-o echipă de dezvoltare, fiecare programator poate lucra la fișiere .c diferite, în timp ce fișierele .h pot fi comune și folosite de toți. Astfel, se poate lucra mai eficient și fără conflicte.
